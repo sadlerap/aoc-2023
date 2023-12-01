@@ -8,6 +8,9 @@ edition = "2021"
 [[bin]]
 name = "day1"
 
+[[bin]]
+name = "day1_const"
+
 [dependencies]
 color-eyre = "0.6.2"
 winnow = "0.5.19"
