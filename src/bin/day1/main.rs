@@ -11,7 +11,7 @@ fn main() -> Result<()> {
 }
 
 fn is_num(c: u8) -> Option<u32> {
-    if (b'0'..=b'9').contains(&c) {
+    if c.is_ascii_digit() {
         Some((c - b'0') as u32)
     } else {
         None

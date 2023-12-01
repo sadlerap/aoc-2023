@@ -1,5 +1,3 @@
-use std::ops::RangeInclusive;
-
 static PART1: u32 = part1();
 static PART2: u32 = part2();
 
@@ -59,32 +57,22 @@ const fn part2() -> u32 {
     acc
 }
 
-const fn range_contains(range: RangeInclusive<u8>, val: u8) -> bool {
-    *range.start() <= val && val <= *range.end()
-}
-
 const fn is_num_at_head(input: &[u8]) -> Option<u32> {
     if input.is_empty() {
         return None;
     }
 
     if let Some(x) = input.first() {
-        if range_contains(b'0'..=b'9', *x) {
+        if x.is_ascii_digit() {
             return Some((*x - b'0') as u32);
         }
     }
 
-    if input.len() >= 3
-        && input[0] == b'o'
-        && input[1] == b'n'
-        && input[2] == b'e' {
+    if input.len() >= 3 && input[0] == b'o' && input[1] == b'n' && input[2] == b'e' {
         return Some(1);
     }
 
-    if input.len() >= 3 &&
-        input[0] == b't' &&
-        input[1] == b'w' &&
-        input[2] == b'o' {
+    if input.len() >= 3 && input[0] == b't' && input[1] == b'w' && input[2] == b'o' {
         return Some(2);
     }
 
@@ -116,10 +104,7 @@ const fn is_num_at_head(input: &[u8]) -> Option<u32> {
         return Some(5);
     }
 
-    if input.len() >= 3 &&
-        input[0] == b's' &&
-        input[1] == b'i' &&
-        input[2] == b'x' {
+    if input.len() >= 3 && input[0] == b's' && input[1] == b'i' && input[2] == b'x' {
         return Some(6);
     }
 
@@ -156,6 +141,6 @@ const fn is_num_at_head(input: &[u8]) -> Option<u32> {
 }
 
 fn main() {
-    println!("{}: {}", "Part 1", PART1);
-    println!("{}: {}", "Part 2", PART2);
+    println!("Part 1: {}", PART1);
+    println!("Part 2: {}", PART2);
 }
