@@ -20,7 +20,7 @@ struct Round {
 }
 
 impl Round {
-    fn parse<'a>(input: &mut &'a str) -> PResult<Self> {
+    fn parse(input: &mut &str) -> PResult<Self> {
         let mut round = Round::default();
         let value = (
             dec_uint,
@@ -70,8 +70,8 @@ impl Game {
 fn part1(input: &str, red_limit: u32, green_limit: u32, blue_limit: u32) -> Result<u32> {
     input
         .lines()
-        .map(|mut line| {
-            Game::parse(&mut line).map_err(|e| eyre!("Failed to parse game: {}", e.to_string()))
+        .map(|line| {
+            Game::parse.parse(line).map_err(|e| eyre!("Failed to parse game: {}", e.to_string()))
         })
         .try_fold(0u32, |acc, game| {
             let game = game?;
