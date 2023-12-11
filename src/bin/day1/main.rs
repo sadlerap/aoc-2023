@@ -37,7 +37,7 @@ fn part1(input: &str) -> Result<u32> {
                 .unwrap_or(first_digit);
             Ok(first_digit * 10 + last_digit)
         })
-        .try_fold(0, |x, y| Ok(x + y?))
+        .try_fold(0, |x, y: Result<u32>| Ok(x + y?))
 }
 
 static DIGITS: [(&str, u32); 18] = [

@@ -17,6 +17,9 @@ name = "day2"
 [[bin]]
 name = "day4"
 
+[[bin]]
+name = "day6"
+
 [dependencies]
 color-eyre = "0.6.2"
-winnow = { git = "https://github.com/asdfuser/winnow.git", branch = "main", version = "0.5.21" }
+winnow = "^0.5.26"
