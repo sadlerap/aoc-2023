@@ -20,6 +20,9 @@ name = "day4"
 [[bin]]
 name = "day6"
 
+[[bin]]
+name = "day7"
+
 [dependencies]
 color-eyre = "0.6.2"
 winnow = "^0.5.26"
